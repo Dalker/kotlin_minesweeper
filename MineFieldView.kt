@@ -25,6 +25,7 @@ class MineFieldView(private val model: MineFieldModel, private val cheating: Boo
     }
 
     fun printField(reveal: Boolean = false) {
+        println()
         println(" │123456789│")
         println("—│—————————│")
         for ((nRow, row) in content(reveal).withIndex()) {
@@ -32,6 +33,6 @@ class MineFieldView(private val model: MineFieldModel, private val cheating: Boo
         }
         println("—│—————————│")
         println(" │123456789│")
+        println()
     }
-
 }

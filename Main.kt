@@ -18,8 +18,12 @@ class MineFieldControl {
         private fun getPlayerInput(): Pair<String, MineFieldModel.Point> {
             view.printField()
             print(TURN_QUESTION)
-            val answer = readLine()!!.split(" ")
-            return Pair(answer[2], model.Point(answer[1].toInt() - 1, answer[0].toInt() - 1))
+            return try {
+                val answer = readLine()!!.split(" ")
+                Pair(answer[2], model.Point(answer[1].toInt() - 1, answer[0].toInt() - 1))
+            } catch (exception: RuntimeException) {
+                Pair("help", model.Point(0, 0))
+            }
         }
 
         private fun win() {
@@ -38,7 +42,7 @@ class MineFieldControl {
                 when (command) {
                     "free" -> point.explore()
                     "mine", "mark" -> point.toggleMark()
-                    else -> print(COMMAND_HELP)
+                    else -> println(COMMAND_HELP)
                 }
                 if (model.foundAllMines() || model.exploredAllSafe()) win() else playTurn()
             }
