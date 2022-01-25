@@ -1,0 +1,19 @@
+#+TITLE: Minesweeper Kotlin Learning Project
+#+AUTHOR: Daniel Kessler (a.k.a. Dalker)
+
+This little project was made while following the [[https://hyperskill.org][HyperSkill]] introductory Kotlin
+course and following their specifications. The originality in this personal
+implementation, not requested by the course, was to try and implement a proper
+MVC approach to tackle the problem. In other words, this toy project has helped
+me learn and practice some basic Kotlin as well as practice implementing a
+simple CLI-based MVC framework.
+
+If the sources are cloned on a local *nix machine, they can be compiled on the
+command line into a =jar= file as
+#+begin_src bash
+kotlinc *.kt -include-runtime -d minesweeper.jar
+#+end_src
+That =jar= file may then be executed with the following command:
+#+begin_src bash
+java -jar minesweeper.jar
+#+end_src
